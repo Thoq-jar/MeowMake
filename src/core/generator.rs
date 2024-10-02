@@ -1,4 +1,4 @@
-use crate::syntax_definition::structure::MeowConfig;
+use crate::meowfile::structure::MeowConfig;
 
 pub fn generator(config: &MeowConfig) -> String {
   let src_files: String = config.src_files.join(" ");

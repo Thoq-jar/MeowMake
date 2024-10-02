@@ -1,5 +1,5 @@
 use std::fs;
-use crate::syntax_definition::structure::MeowConfig;
+use crate::meowfile::structure::MeowConfig;
 
 fn parse_list(value: &str) -> Vec<String> {
   value
