@@ -16,7 +16,7 @@ cd .meowmake
 git clone https://github.com/Thoq-jar/MeowMake.git
 cd MeowMake
 cargo build --release
-sudo cp target/release/Meowmake /usr/local/bin/meowmake
+sudo cp target/release/MeowMake /usr/local/bin/meowmake
 cd ..
 cd ..
 rm -rf .meowmake
