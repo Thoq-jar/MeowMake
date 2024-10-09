@@ -2,6 +2,16 @@
 
 MeowMake is a simple build system for C/C++ projects. It is designed to be easy to use and easy to understand. It is written in Rust and is cross-platform.
 
+## Syntax
+```meowfile
+purriler - compiler (eg. clang++)
+purroject_files - files (eg. ["main.cc", "utils.cc"])
+meoutput - name of exec (eg. my_app)
+purriler_flags - compiler flags (eg. -Wall -O2 `wx-config --cxxflags`)
+purrepends - libraries (eg. ["`wx-config --libs`"])
+meocal_purrepends - local libraries (eg. ["-I./include", "-L./lib"])
+```
+
 ## Installation
 Prerequisites:
 - Rust and Cargo

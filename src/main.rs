@@ -13,12 +13,10 @@ use std::fs;
 fn main() {
   let args: Vec<String> = env::args().collect();
 
-  match args.as_slice() {
-    [_, ref flag] if flag == "--version" || flag == "-v" => {
-      show();
-      return;
-    }
-    _ => {}
+  if args[1] == "--version" || args[1] == "-v" {
+    show(false);
+  } else if args[1] == "--help" || args[1] == "-h" {
+    show(true);
   }
 
   let meowfile = "Meowfile";
