@@ -49,6 +49,9 @@ Linux/macOS:
 ```bash
 cd $HOME/.meowmake
 git pull
+cargo build --release
+mv target/release/MeowMake $HOME/.meowmake/meowmake
+rm -rf target/
 cd $HOME/
 ```
 
@@ -56,6 +59,8 @@ Windows:
 ```cmd
 cd %USERPROFILE%/.meowmake
 git pull
+cargo build --release
+copy target\release\meowmake.exe %USERPROFILE%\AppData\Local\Microsoft\WindowsApps
 cd %USERPROFILE%
 ```
 
