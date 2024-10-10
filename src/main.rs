@@ -10,16 +10,8 @@ use crate::utility::version::show;
 use std::env;
 use std::fs;
 
-fn main() {
-  let args: Vec<String> = env::args().collect();
-
-  if args[1] == "--version" || args[1] == "-v" {
-    show(false);
-  } else if args[1] == "--help" || args[1] == "-h" {
-    show(true);
-  }
-
-  let meowfile = "Meowfile";
+fn start() {
+  let meowfile: &str = "Meowfile";
 
   if !fs::metadata(meowfile).is_ok() {
     eprintln!("Error: Meowfile not found in the current directory.");
@@ -33,4 +25,18 @@ fn main() {
   let builder: String = generator(&config);
   println!("Building...");
   build(&builder);
+}
+
+fn main() {
+  let args: Vec<String> = env::args().collect();
+
+  match args.as_slice() {
+    [] => start(),
+    [first_arg] if first_arg.ends_with("") => start(),
+    [_, ref second_arg] if second_arg == "--version" || second_arg == "-v" => show(false),
+    [_, ref second_arg] if second_arg == "--help" || second_arg == "-h" => show(true),
+    _ => {
+      eprintln!("Error: Invalid arguments. Use --help for usage information.");
+    }
+  }
 }

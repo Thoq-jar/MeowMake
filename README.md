@@ -20,16 +20,17 @@ Prerequisites:
 
 Linux/macOS:
 ```bash
-cd ~
+cd $HOME/
 mkdir -p .meowmake
-cd .meowmake
-git clone https://github.com/Thoq-jar/MeowMake.git
-cd MeowMake
+cd .meowmake/
+git clone https://github.com/Thoq-jar/MeowMake.git .
+git checkout -b master
+git pull
 cargo build --release
-sudo cp target/release/MeowMake /usr/local/bin/meowmake
+mv target/release/MeowMake $HOME/.meowmake/meowmake
+rm -rf target/
 cd ..
-cd ..
-rm -rf .meowmake
+export PATH="$HOME/.meowmake/:$PATH"
 ```
 
 Windows:
