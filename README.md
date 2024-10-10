@@ -38,13 +38,25 @@ Windows:
 cd %USERPROFILE%
 mkdir .meowmake
 cd .meowmake
-git clone https://github.com/Thoq-jar/MeowMake.git
-cd MeowMake
+git clone https://github.com/Thoq-jar/MeowMake.git .
 cargo build --release
 copy target\release\meowmake.exe %USERPROFILE%\AppData\Local\Microsoft\WindowsApps
 cd ..
-cd ..
-rmdir /s /q .meowmake
+```
+
+## Updating
+Linux/macOS:
+```bash
+cd $HOME/.meowmake
+git pull
+cd $HOME/
+```
+
+Windows:
+```cmd
+cd %USERPROFILE%/.meowmake
+git pull
+cd %USERPROFILE%
 ```
 
 ## License
