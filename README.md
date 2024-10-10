@@ -53,6 +53,7 @@ cargo build --release
 mv target/release/MeowMake $HOME/.meowmake/meowmake
 rm -rf target/
 cd $HOME/
+export PATH="$HOME/.meowmake/:$PATH"
 ```
 
 Windows:
