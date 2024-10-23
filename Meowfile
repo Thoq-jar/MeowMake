@@ -1,0 +1,3 @@
+purriler = rustc
+purroject_files = ["src/main.rs"]
+meoutput = nekomake

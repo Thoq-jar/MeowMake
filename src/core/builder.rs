@@ -1,5 +1,7 @@
 use std::io::{BufRead, BufReader};
 use std::process::{Command, Stdio};
+use std::sync::mpsc;
+use std::thread;
 
 pub fn build(command: &str) {
     println!("Building project...");
@@ -10,14 +12,25 @@ pub fn build(command: &str) {
         .spawn()
         .expect("Failed to build!");
 
-    if let Some(stdout) = child.stdout.take() {
-        let reader = BufReader::new(stdout);
+    let stdout = child.stdout.take().expect("Failed to capture stdout");
+    let reader = BufReader::new(stdout);
+    let (tx, rx) = mpsc::channel();
+
+    thread::spawn(move || {
         for line in reader.lines() {
             match line {
-                Ok(line) => println!("{}", line),
+                Ok(line) => {
+                    if let Err(_) = tx.send(line) {
+                        break;
+                    }
+                }
                 Err(err) => eprintln!("Error reading line: {}", err),
             }
         }
+    });
+
+    for received in rx {
+        println!("{}", received);
     }
 
     let status = child.wait().expect("Failed to wait on child");
