@@ -25,7 +25,7 @@ cd $HOME/
 mkdir -p .meowmake
 cd .meowmake/
 git clone https://github.com/Thoq-jar/MeowMake.git .
-git checkout -b master
+git checkout master
 git pull
 zig build --release=safe
 mv zig-out/bin/meowmake $HOME/.meowmake/meowmake
