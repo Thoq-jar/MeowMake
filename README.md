@@ -27,7 +27,7 @@ cd .meowmake/
 git clone https://github.com/Thoq-jar/MeowMake.git .
 git checkout -b master
 git pull
-zig build
+zig build --release=safe
 mv zig-out/bin/meowmake $HOME/.meowmake/meowmake
 rm -rf zig-out/
 cd ..
@@ -40,7 +40,7 @@ cd %USERPROFILE%
 mkdir .meowmake
 cd .meowmake
 git clone https://github.com/Thoq-jar/MeowMake.git .
-zig build
+zig.exe build --release=safe
 copy zig-out\bin\meowmake.exe %USERPROFILE%\AppData\Local\Microsoft\WindowsApps
 cd ..
 ```
@@ -50,7 +50,7 @@ Linux/macOS:
 ```bash
 cd $HOME/.meowmake
 git pull
-zig build
+zig build --release=safe
 mv zig-out/bin/meowmake $HOME/.meowmake/meowmake
 rm -rf zig-out/
 cd $HOME/
@@ -61,7 +61,7 @@ Windows:
 ```cmd
 cd %USERPROFILE%/.meowmake
 git pull
-zig build
+zig.exe build --release=safe
 copy zig-out\bin\meowmake.exe %USERPROFILE%\AppData\Local\Microsoft\WindowsApps
 cd %USERPROFILE%
 ```
