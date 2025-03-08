@@ -59,13 +59,13 @@ pub fn parse(allocator: std.mem.Allocator, filename: []const u8) !MeowConfig {
             config.compiler = try allocator.dupe(u8, value);
         } else if (std.mem.eql(u8, key, "purroject_files")) {
             config.src_files = try parseList(allocator, value);
-        } else if (std.mem.eql(u8, key, "meoutput")) {
+        } else if (std.mem.eql(u8, key, "meowutput")) {
             config.output = try allocator.dupe(u8, value);
         } else if (std.mem.eql(u8, key, "purriler_flags")) {
             config.cflags = try allocator.dupe(u8, value);
         } else if (std.mem.eql(u8, key, "purrepends")) {
             config.depends = try parseList(allocator, value);
-        } else if (std.mem.eql(u8, key, "meocal_purrepends")) {
+        } else if (std.mem.eql(u8, key, "meowcal_purrepends")) {
             config.local_depends = try parseList(allocator, value);
         }
     }

@@ -7,10 +7,10 @@ It is written in Zig and is cross-platform.
 ```meowfile
 purriler - compiler (eg. clang++)
 purroject_files - files (eg. ["main.cc", "utils.cc"])
-meoutput - name of exec (eg. my_app)
+meowutput - name of exec (eg. my_app)
 purriler_flags - compiler flags (eg. -Wall -O2 `wx-config --cxxflags`)
 purrepends - libraries (eg. ["`wx-config --libs`"])
-meocal_purrepends - local libraries (eg. ["-I./include", "-L./lib"])
+meowcal_purrepends - local libraries (eg. ["-I./include", "-L./lib"])
 ```
 
 ## Installation
